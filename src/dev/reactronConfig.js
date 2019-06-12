@@ -1,7 +1,7 @@
-import Reactotron from 'reactotron-react-native';
+import Reactotron from 'reactotron-react-native'
 
 Reactotron.configure({
-	name: 'MeVoy',
+  name: 'MeVoy',
 })
-	.useReactNative()
-	.connect();
+  .useReactNative()
+  .connect()

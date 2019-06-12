@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
-import { AppNavigator } from '../Router';
-import { createNavigationReducer } from 'react-navigation-redux-helpers';
+import { combineReducers } from 'redux'
+import { AppNavigator } from '../Router'
+import { createNavigationReducer } from 'react-navigation-redux-helpers'
 import Api from './Api'
 
-const navReducer = createNavigationReducer(AppNavigator);
+const navReducer = createNavigationReducer(AppNavigator)
 
 const appReducer = combineReducers({
-	Api,
-});
+  Api,
+})
 
-export default appReducer;
+export default appReducer
