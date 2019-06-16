@@ -24,6 +24,11 @@ class Offline extends Component {
     super(props)
 
     this.state = {}
+
+    NetInfo.addEventListener(
+      'connectionChange',
+      this.handleFirstConnectivityChange
+    )
   }
 
   render() {

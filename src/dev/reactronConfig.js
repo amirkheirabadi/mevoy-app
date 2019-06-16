@@ -1,7 +1,10 @@
 import Reactotron from 'reactotron-react-native'
+import { reactotronRedux } from 'reactotron-redux'
 
-Reactotron.configure({
+const reactotron = Reactotron.configure({
   name: 'MeVoy',
 })
-  .useReactNative()
+  .use(reactotronRedux())
   .connect()
+
+export default reactotron
