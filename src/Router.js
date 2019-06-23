@@ -4,9 +4,13 @@ import { connect } from 'react-redux'
 import Home from './screens/Home'
 import Signup from './screens/Signup'
 import Offline from './screens/Offline'
+import Init from './screens/Init'
 
 export const AppNavigator = createStackNavigator(
   {
+    Init: {
+      screen: Init,
+    },
     Home: {
       screen: Home,
     },
@@ -18,7 +22,7 @@ export const AppNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Signup',
+    initialRouteName: 'Init',
     headerMode: 'none',
   }
 )

@@ -14,6 +14,17 @@ const Styles = StyleSheet.create({
     alignSelf: 'center',
   },
 
+  // Loading
+  loadingWrapperacka: {
+    position: 'absolute',
+    backgroundColor: 'rgba(52, 73, 94, 0.95)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width,
+    height: height,
+    alignSelf: 'center',
+  },
+
   // Auth
   authTitle: {
     alignSelf: 'center',

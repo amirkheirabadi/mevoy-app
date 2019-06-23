@@ -5,6 +5,8 @@ import { AsyncStorage } from 'react-native'
 function User(
   state = {
     authFormStep: 'signin',
+
+    token: '',
   },
   action
 ) {

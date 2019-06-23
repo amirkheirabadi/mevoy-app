@@ -38,6 +38,13 @@ class Signup extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'MQTT_CONNECT',
+      payload: {},
+    })
+  }
+
   signin() {
     this.props.dispatch({
       type: 'API_REQUEST',
