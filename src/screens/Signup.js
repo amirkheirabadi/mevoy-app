@@ -17,6 +17,7 @@ import {
   Label,
   Picker,
 } from 'native-base'
+import Loading from './Loading'
 
 import Styles from '../Styles'
 
@@ -36,13 +37,6 @@ class Signup extends Component {
       last_name: '',
       email: '',
     }
-  }
-
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'MQTT_CONNECT',
-      payload: {},
-    })
   }
 
   signin() {
@@ -234,21 +228,21 @@ class Signup extends Component {
               >
                 <Item>
                   <Input
-                    placeholder="code"
+                    placeholder="First name"
                     onChangeText={first_name => this.setState({ first_name })}
                   />
                 </Item>
 
                 <Item>
                   <Input
-                    placeholder="code"
+                    placeholder="Last name"
                     onChangeText={last_name => this.setState({ last_name })}
                   />
                 </Item>
 
                 <Item>
                   <Input
-                    placeholder="code"
+                    placeholder="Email"
                     onChangeText={email => this.setState({ email })}
                   />
                 </Item>
@@ -270,7 +264,10 @@ class Signup extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(commonColor)}>
-        {this.renderForm()}
+        <View style={{ flex: 1 }}>
+          {this.renderForm()}
+          {this.props.loading == true ? <Loading /> : null}
+        </View>
       </StyleProvider>
     )
   }
@@ -279,6 +276,7 @@ class Signup extends Component {
 function mapStateToProps(state) {
   return {
     authFormStep: state.User.authFormStep,
+    loading: state.Api.loading,
   }
 }
 

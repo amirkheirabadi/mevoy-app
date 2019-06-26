@@ -15,14 +15,15 @@ const Styles = StyleSheet.create({
   },
 
   // Loading
-  loadingWrapperacka: {
+  loadingWrapper: {
     position: 'absolute',
-    backgroundColor: 'rgba(52, 73, 94, 0.95)',
+    backgroundColor: 'rgba(52, 152, 219, 0.9)',
     alignItems: 'center',
     justifyContent: 'center',
     width: width,
     height: height,
     alignSelf: 'center',
+    zIndex: 10,
   },
 
   // Auth

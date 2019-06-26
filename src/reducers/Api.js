@@ -21,8 +21,19 @@ import { AsyncStorage } from 'react-native'
 // 	}
 // }
 
-function Api(state = {}, action) {
+function Api(
+  state = {
+    loading: false,
+  },
+  action
+) {
   try {
+    switch (action.type) {
+      case 'PAGE_LOADING':
+        return { ...state, loading: action.payload }
+        break
+    }
+
     // let nextState;
 
     // Reactotron.log(action);

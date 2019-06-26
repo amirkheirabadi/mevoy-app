@@ -6,49 +6,47 @@ function User(
   state = {
     authFormStep: 'signin',
 
+    mobile: '',
+    first_name: '',
+    last_name: '',
+    email: '',
     token: '',
   },
   action
 ) {
   try {
     switch (action.type) {
-      // case 'AUTH_STEP':
-      //   return {
-      //     ...state,
-      //     authFormStep: action.payload,
-      //   }
-      //   break
-
       case 'API_AUTH_SIGNIN_SUCCESS':
         return {
           ...state,
           authFormStep: 'verify',
         }
         break
+
+      case 'API_AUTH_VERIFY_SUCCESS':
+        const data = action.payload.data
+        AsyncStorage.setItem('token', data.token)
+
+        if (data.status == 'pending') {
+          return {
+            ...state,
+            token: data.token,
+            mobile: data.mobile,
+            authFormStep: 'complete',
+          }
+        }
+
+        return {
+          ...state,
+          token: data.token,
+          authFormStep: 'signin',
+          first_name: data.first_name,
+          last_name: data.last_name,
+          email: data.email,
+          mobile: data.mobile,
+        }
+        break
     }
-
-    // 	case 'CLEAR_TRAVEL':
-    // 		return {
-    // 			...state,
-    // 			customerCacheType: false,
-    // 			activeTravel: {
-    // 				id: false,
-    // 				length: 0,
-    // 				time: 0,
-    // 				customer: {
-    // 					mobile: '',
-    // 					fname: '',
-    // 					lname: '',
-    // 				},
-    // 				price: 0,
-    // 				price_payable: 0,
-    // 				points: [],
-    // 			},
-    // 		};
-    // 		break;
-    // }
-
-    // // Simply return the original `state` if `nextState` is null or undefined.
     return state
   } catch (error) {
     Reactotron.log(error)

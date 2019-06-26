@@ -4,21 +4,10 @@ import { View, Text, Image, NetInfo, AsyncStorage } from 'react-native'
 import { Col, Row, Grid } from 'react-native-easy-grid'
 import getTheme from '../../native-base-theme/components'
 import commonColor from '../../native-base-theme/variables/commonColor'
-import {
-  Container,
-  Header,
-  Content,
-  Form,
-  Item,
-  Input,
-  Button,
-  StyleProvider,
-  Icon,
-  Label,
-  Picker,
-} from 'native-base'
+
 import Styles from '../Styles'
-import { Bubbles, DoubleBounce, Bars, Pulse } from 'react-native-loader'
+
+const Spinner = require('react-native-spinkit')
 
 export default class Loading extends Component {
   constructor(props) {
@@ -30,15 +19,17 @@ export default class Loading extends Component {
   render() {
     return (
       <View style={Styles.loadingWrapper}>
-        <Bubbles
-          size={10}
-          color="#e74c3c"
-          style={{
-            alignSelf: 'center',
-          }}
-        />
+        <Spinner size={25} type={'Bounce'} color={'#fff'} />
 
-        <Text>Loading ...</Text>
+        <Text
+          style={{
+            color: '#fff',
+            marginTop: 20,
+            fontSize: 16,
+          }}
+        >
+          LOADING ...
+        </Text>
       </View>
     )
   }
